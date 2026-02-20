@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router/dom";
 import './index.css';
 import MainLayout from "./Layouts/MainLayout";
 import Home from "./pages/Home";
+import AddCoffee from "./components/AddCoffee";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
     Component: MainLayout,
     children: [
       {index: true, Component: Home},
+      {path:"addCoffee", Component: AddCoffee},
     ],
   },
 ]);
