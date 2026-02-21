@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddCoffee = () => {
 
     const handleAddCoffee = e => {
@@ -7,6 +9,24 @@ const AddCoffee = () => {
         const newCoffee = Object.fromEntries(formData.entries());
         console.log(newCoffee)
 
+        //adding a coffee to db
+        fetch('http://localhost:3000/coffees', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(newCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Coffee Added Sucessfully!",
+                        icon: "success",
+                        draggable: true
+                    });
+                }
+            })
 
     }
     return (
