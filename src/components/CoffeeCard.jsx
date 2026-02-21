@@ -1,53 +1,71 @@
+import Swal from "sweetalert2";
+
 const CoffeeCard = ({ coffee }) => {
-  const { name, quantity, taste, photo } = coffee;
+  const { _id, name, quantity, taste, photo } = coffee;
+
+  const handleDelete = (_id) => {
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/coffees/${_id}`, {
+          method: "DELETE",
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          })
+      }
+    });
+
+
+
+
+  }
   return (
     <div>
-      <div className="card card-side bg-[#F5F4F1] pr-6 py-6 shadow-sm">
+      <div className="card card-side bg-[#F5F4F1] pr-6 pl-3 py-6 shadow-sm">
         <figure>
           <img
             src={photo}
             alt={name} />
         </figure>
+
         <div className="flex justify-between items-center w-full gap-6">
-          <div className="space-y-1">
+
+          <div className="space-y-1 text-justify">
             <h2 className="card-title">Name: {name}</h2>
             <p className="text-left">Quantity: {quantity}</p>
             <p className="text-left">Taste: {taste}</p>
-            
           </div>
-          <div className="card-actions ">
+
+          <div>
             <div className="join join-vertical space-y-2 ">
               <button className="btn join-item text-white font-semibold rounded-2xl bg-[#D2B48C]">View</button>
               <button className="btn join-item text-white font-semibold rounded-2xl bg-[#3C393B]">Edit</button>
-              <button className="btn join-item text-white font-semibold rounded-2xl bg-[#EA4744]">Delete</button>
+              <button onClick={() => handleDelete(_id)} className="btn join-item text-white font-semibold rounded-2xl bg-[#EA4744]">Delete</button>
             </div>
           </div>
+
         </div>
+
       </div>
     </div>
   );
 };
-/**
- * {
-   
-  {
-    "name": "Midnight Kraft Perk",
-    "quantity": "14 oz",
-    "supplier": "KP Roasters",
-    "taste": "Dark Chocolate, Smokey, Intense",
-    "category": "Dark Roast",
-    "details": "Intense dark roast for the serious coffee lover. Sustainable kraft paper packaging with a sleek black insulator.",
-    "photo": "https://example.com/images/kp-mockup.png"
-  },
-  {
-    "name": "Heritage Morning Coffee",
-    "quantity": "10 oz",
-    "supplier": "Daily Brew Co.",
-    "taste": "Balanced, Toasted, Sweet",
-    "category": "House Blend",
-    "details": "Our classic house blend. A balanced medium roast with a hint of toasted caramel, served in our iconic corrugated sleeve cup.",
-    "photo": "https://example.com/images/heritage-morning.png"
-  }
-}
- */
+
 export default CoffeeCard;
