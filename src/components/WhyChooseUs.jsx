@@ -4,8 +4,8 @@ import Grades from '../assets/images/icons/3.png';
 import Roasting from '../assets/images/icons/4.png';
 const WhyChooseUs = () => {
     return (
-        <div className="max-w-7xl mx-auto py-12">
-         <div className="flex gap-8">
+        <div className="max-w-7xl mx-auto md:py-12">
+         <div className="md:flex hidden md:flex-row gap-8">
                <div className='space-y-2'>
                 <img src={Aroma} alt="" />
                 <h3 className="font-rancho text-4xl">Awesome Aroma</h3>
