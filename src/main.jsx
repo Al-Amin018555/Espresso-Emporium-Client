@@ -7,11 +7,13 @@ import Home from "./pages/Home";
 import AddCoffee from "./components/AddCoffee";
 import CoffeeDetails from "./components/CoffeeDetails";
 import UpdateCoffee from "./components/UpdateCoffee";
+import ErrorPage from "./components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,

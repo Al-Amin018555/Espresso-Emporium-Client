@@ -42,9 +42,9 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   }
   return (
     <div>
-      <div className="card card-side min-h-60 flex flex-col md:flex-row bg-[#F5F4F1] pr-6 pl-3 py-6 shadow-sm">
+      <div className="card card-side max-h-60 flex flex-col gap-6 md:flex-row bg-[#F5F4F1] pr-6 pl-3 py-6 shadow-sm">
         <figure>
-          <img className="w-44 md:w-full"
+          <img className="w-44 md:w-2xs"
             src={photo}
             alt={name} />
         </figure>
