@@ -1,3 +1,5 @@
+import { GoArrowLeft } from "react-icons/go";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const AddCoffee = () => {
@@ -25,12 +27,15 @@ const AddCoffee = () => {
                         icon: "success",
                         draggable: true
                     });
+                    form.reset()
                 }
             })
 
     }
     return (
         <div className="max-w-7xl my-10 rounded-2xl mx-auto bg-[#F4F3F0] py-10 md:py-18 px-12 md:px-24">
+            <Link to='/' className="font-rancho text-3xl flex items-center gap-2 mb-6 md:mb-12"> <GoArrowLeft />
+                Back to home</Link>
             <div className="px-10 md:px-20 text-center space-y-4">
                 <h2 className="font-rancho text-3xl md:text-5xl">Add New Coffee</h2>
                 <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>

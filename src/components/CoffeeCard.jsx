@@ -39,7 +39,7 @@ const CoffeeCard = ({ coffee }) => {
   }
   return (
     <div>
-      <div className="card card-side flex flex-col md:flex-row bg-[#F5F4F1] pr-6 pl-3 py-6 shadow-sm">
+      <div className="card card-side min-h-60 flex flex-col md:flex-row bg-[#F5F4F1] pr-6 pl-3 py-6 shadow-sm">
         <figure>
           <img className="w-44 md:w-full"
             src={photo}
@@ -69,6 +69,7 @@ const CoffeeCard = ({ coffee }) => {
       </div>
     </div>
   );
+  
 };
 
 export default CoffeeCard;
