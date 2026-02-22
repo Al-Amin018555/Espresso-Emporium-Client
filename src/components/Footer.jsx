@@ -12,9 +12,9 @@ const Footer = () => {
                 <div className='max-w-7xl mx-auto'>
                     <img className='w-18.75' src={logo} alt="" />
                 </div>
-                <div className="max-w-7xl flex justify-between mx-auto">
+                <div className="max-w-7xl flex flex-col md:flex-row md:justify-between mx-auto">
 
-                    <aside className='w-[60%] space-y-4'>
+                    <aside className='md:w-[60%] space-y-4'>
                         <p className='font-rancho text-3xl md:text-5xl'>Espresso Emporium</p>
                         <p>Always ready to be your friend. Come & Contact with us to share your <br /> memorable moments, to share with your best companion.</p>
 
@@ -42,7 +42,7 @@ const Footer = () => {
                         </div>
                     </aside>
 
-                    <fieldset className="fieldset w-[40%] bg-base-200 border-base-300 space-y-4 rounded-box">
+                    <fieldset className="fieldset mt-4 md:mt-0 md:w-[40%] bg-base-200 border-base-300 space-y-4 rounded-box">
                         <h2 className='text-3xl md:text-5xl font-rancho'>Connect With US</h2>
                         <input type="text" className="input w-full border-0 outline-0" placeholder="Name" />
                         <input type="email" className="input w-full border-0 outline-0" placeholder="Email" />

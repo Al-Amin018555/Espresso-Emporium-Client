@@ -39,9 +39,9 @@ const CoffeeCard = ({ coffee }) => {
   }
   return (
     <div>
-      <div className="card card-side bg-[#F5F4F1] pr-6 pl-3 py-6 shadow-sm">
+      <div className="card card-side flex flex-col md:flex-row bg-[#F5F4F1] pr-6 pl-3 py-6 shadow-sm">
         <figure>
-          <img
+          <img className="w-44 md:w-full"
             src={photo}
             alt={name} />
         </figure>
@@ -49,9 +49,9 @@ const CoffeeCard = ({ coffee }) => {
         <div className="flex justify-between items-center w-full gap-6">
 
           <div className="space-y-1 text-justify">
-            <h2 className="card-title">Name: {name}</h2>
-            <p className="text-left">Quantity: {quantity}</p>
-            <p className="text-left">Taste: {taste}</p>
+            <h2> <span className="font-semibold">Name:</span> {name}</h2>
+            <p className="text-left"> <span className="font-semibold">Quantity:</span> {quantity}</p>
+            <p className="text-left"> <span className="font-semibold">Taste:</span> {taste}</p>
           </div>
 
           <div>
