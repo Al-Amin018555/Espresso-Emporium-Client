@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   const { _id, name, quantity, taste, photo } = coffee;
 
   const handleDelete = (_id) => {
@@ -29,6 +29,9 @@ const CoffeeCard = ({ coffee }) => {
                 icon: "success"
               });
             }
+
+            const reamingCoffees = coffees.filter(cof => cof._id !== _id);
+            setCoffees(reamingCoffees)
           })
       }
     });
@@ -55,12 +58,12 @@ const CoffeeCard = ({ coffee }) => {
           </div>
 
           <div>
-            <div className="join join-vertical space-y-2 ">
-              <Link to= {`/coffees/${_id}`}>
-                <button className="btn join-item text-white font-semibold rounded-2xl bg-[#D2B48C]">View</button>
+            <div className="join join-vertical space-y-2">
+              <Link to={`/coffees/${_id}`}>
+                <button className="btn join-item text-white font-semibold w-full rounded-xl bg-[#D2B48C]">View</button>
               </Link>
-              <button className="btn join-item text-white font-semibold rounded-2xl bg-[#3C393B]">Edit</button>
-              <button onClick={() => handleDelete(_id)} className="btn join-item text-white font-semibold rounded-2xl bg-[#EA4744]">Delete</button>
+              <button className="btn join-item text-white font-semibold w-full rounded-xl bg-[#3C393B]">Edit</button>
+              <button onClick={() => handleDelete(_id)} className="btn join-item rounded-xl text-white font-semibold w-full bg-[#EA4744]">Delete</button>
             </div>
           </div>
 
@@ -69,7 +72,7 @@ const CoffeeCard = ({ coffee }) => {
       </div>
     </div>
   );
-  
+
 };
 
 export default CoffeeCard;
