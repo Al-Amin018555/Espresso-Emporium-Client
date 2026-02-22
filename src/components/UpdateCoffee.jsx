@@ -1,47 +1,17 @@
 import { GoArrowLeft } from "react-icons/go";
 import { Link } from "react-router";
-import Swal from "sweetalert2";
 
-const AddCoffee = () => {
-
-    const handleAddCoffee = e => {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const newCoffee = Object.fromEntries(formData.entries());
-        console.log(newCoffee)
-
-        //adding a coffee to db
-        fetch('http://localhost:3000/coffees', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(newCoffee)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: "Coffee Added Sucessfully!",
-                        icon: "success",
-                        draggable: true
-                    });
-                    form.reset()
-                }
-            })
-
-    }
+const UpdateCoffee = () => {
     return (
         <div className="max-w-7xl my-10 rounded-2xl mx-auto bg-[#F4F3F0] py-10 md:py-18 px-12 md:px-24">
             <Link to='/' className="font-rancho text-3xl flex items-center gap-2 mb-6 md:mb-12"> <GoArrowLeft />
                 Back to home</Link>
             <div className="md:px-20 text-center space-y-4">
-                <h2 className="font-rancho text-3xl md:text-5xl">Add New Coffee</h2>
+                <h2 className="font-rancho text-3xl md:text-5xl">Update Existing Coffee Details</h2>
                 <p className="text-justify">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
             </div>
 
-            <form className="my-6" onSubmit={handleAddCoffee}>
+            <form className="my-6">
                 <fieldset className="fieldset grid grid-cols-1 md:grid-cols-2 gap-6 rounded-box">
                     <div>
                         <label className="label">Name</label>
@@ -79,7 +49,7 @@ const AddCoffee = () => {
                     <br />
                     <input type="text" className="input w-full outline-0" name="photo" placeholder="Enter photo URL" />
                 </div>
-                <input type="submit" className="btn w-full font-rancho text-sm md:text-2xl bg-[#D2B48C] text-[#331A15]" value="Add Coffee" />
+                <input type="submit" className="btn w-full font-rancho text-sm md:text-2xl bg-[#D2B48C] text-[#331A15]" value="Update Coffee Details" />
             </form>
 
 
@@ -87,4 +57,4 @@ const AddCoffee = () => {
     );
 };
 
-export default AddCoffee;
+export default UpdateCoffee;

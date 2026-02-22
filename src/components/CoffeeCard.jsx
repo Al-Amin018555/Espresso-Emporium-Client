@@ -62,7 +62,9 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
               <Link to={`/coffees/${_id}`}>
                 <button className="btn join-item text-white font-semibold w-full rounded-xl bg-[#D2B48C]">View</button>
               </Link>
-              <button className="btn join-item text-white font-semibold w-full rounded-xl bg-[#3C393B]">Edit</button>
+              <Link to={`/updateCoffee/${_id}`}>
+                <button className="btn join-item text-white font-semibold w-full rounded-xl bg-[#3C393B]">Edit</button>
+              </Link>
               <button onClick={() => handleDelete(_id)} className="btn join-item rounded-xl text-white font-semibold w-full bg-[#EA4744]">Delete</button>
             </div>
           </div>
