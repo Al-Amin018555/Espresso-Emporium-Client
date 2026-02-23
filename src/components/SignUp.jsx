@@ -1,5 +1,6 @@
 import { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const { createUser } = use(AuthContext);
@@ -8,13 +9,33 @@ const SignUp = () => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const email = formData.get('email');
-        const password = formData.get('password');
-        console.log(email, password)
+        const { email, password, ...userProfile } = Object.fromEntries(formData.entries());
+        console.log(userProfile, email, password)
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                //add user profile info in db
+                fetch('http://localhost:3000/users', {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(userProfile)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Your account is created.",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+
+                    })
             })
             .catch(error => console.log(error))
 
@@ -24,6 +45,12 @@ const SignUp = () => {
             <div className="card-body">
                 <h1 className="text-5xl font-bold">Sign Up now!</h1>
                 <form onSubmit={handleSignUp} className="fieldset">
+                    <label className="label">Name</label>
+                    <input type="text" className="input" name="name" placeholder="Name" />
+                    <label className="label">Address</label>
+                    <input type="text" className="input" name="address" placeholder="Address" />
+                    <label className="label">Photo</label>
+                    <input type="text" className="input" name="photo" placeholder="Photo URL" />
                     <label className="label">Email</label>
                     <input type="email" className="input" name="email" placeholder="Email" />
                     <label className="label">Password</label>
