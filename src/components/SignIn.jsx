@@ -1,9 +1,43 @@
+import { use } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+
 const SignIn = () => {
+
+    const { signInUser } = use(AuthContext);
+
+    const handleSignIn = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        signInUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                const userInfo = {
+                    email,
+                    lastSignInTime: result.user.metadata.lastSignInTime,
+                }
+                fetch('http://localhost:3000/user', {
+                    method: "PATCH",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("data after patch ", data)
+                    })
+            })
+            .catch(error => console.log(error))
+    }
     return (
-         <div className="card bg-base-100 max-w-sm mx-auto my-6 shrink-0 shadow-2xl">
+        <div className="card bg-base-100 max-w-sm mx-auto my-6 shrink-0 shadow-2xl">
             <div className="card-body">
                 <h1 className="text-5xl font-bold">Sign In now!</h1>
-                <form className="fieldset">
+                <form onSubmit={handleSignIn} className="fieldset">
                     <label className="label">Email</label>
                     <input type="email" className="input" name="email" placeholder="Email" />
                     <label className="label">Password</label>
