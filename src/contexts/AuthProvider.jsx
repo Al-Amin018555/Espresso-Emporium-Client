@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+  
     const userInfo = {
         createUser,
     };
