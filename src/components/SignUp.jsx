@@ -14,7 +14,6 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(result => {
-                console.log(result.user)
                 const userProfile = {
                     email,
                     ...rest,
@@ -45,7 +44,7 @@ const SignUp = () => {
 
                     })
             })
-            .catch(error => console.log(error))
+            .catch(error => alert(error))
 
     }
     return (

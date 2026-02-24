@@ -10,11 +10,9 @@ const SignIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         signInUser(email, password)
             .then(result => {
-                console.log(result.user)
                 const userInfo = {
                     email,
                     lastSignInTime: result.user.metadata.lastSignInTime,
@@ -27,11 +25,9 @@ const SignIn = () => {
                     body: JSON.stringify(userInfo)
                 })
                     .then(res => res.json())
-                    .then(data => {
-                        console.log("data after patch ", data)
-                    })
+                   
             })
-            .catch(error => console.log(error))
+            .catch(error => alert(error))
     }
     return (
         <div className="card bg-base-100 max-w-sm mx-auto my-6 shrink-0 shadow-2xl">

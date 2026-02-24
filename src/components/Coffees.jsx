@@ -4,7 +4,6 @@ import { RiCupLine } from "react-icons/ri";
 import { Link } from "react-router";
 
 const coffeePromise = fetch("https://espresso-emporium-server-opal-three.vercel.app/coffees").then(res => res.json());
-console.log(coffeePromise)
 
 const Coffees = () => {
     const initialCoffees = use(coffeePromise);

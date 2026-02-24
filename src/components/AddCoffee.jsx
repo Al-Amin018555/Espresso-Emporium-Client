@@ -9,7 +9,6 @@ const AddCoffee = () => {
         const form = e.target;
         const formData = new FormData(form);
         const newCoffee = Object.fromEntries(formData.entries());
-        console.log(newCoffee)
 
         //adding a coffee to db
         fetch('https://espresso-emporium-server-opal-three.vercel.app/coffees', {

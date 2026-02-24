@@ -10,7 +10,6 @@ const UpdateCoffee = () => {
         const form = e.target;
         const formData = new FormData(form);
         const updatedCoffee = Object.fromEntries(formData.entries());
-        console.log(updatedCoffee)
 
         //update coffee
         fetch(`https://espresso-emporium-server-opal-three.vercel.app/updateCoffee/${_id}`, {
@@ -30,7 +29,7 @@ const UpdateCoffee = () => {
                         showConfirmButton: false,
                         timer: 1000
                     });
-                    form.reset();
+
                 }
             })
     }
