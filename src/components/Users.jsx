@@ -20,7 +20,7 @@ const Users = () => {
             if (result.isConfirmed) {
 
                 //delete user from db
-                fetch(`http://localhost:3000/users/${id}`, {
+                fetch(`https://espresso-emporium-server-nine-delta.vercel.app/users/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

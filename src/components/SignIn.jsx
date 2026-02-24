@@ -19,7 +19,7 @@ const SignIn = () => {
                     email,
                     lastSignInTime: result.user.metadata.lastSignInTime,
                 }
-                fetch('http://localhost:3000/user', {
+                fetch('https://espresso-emporium-server-nine-delta.vercel.app/user', {
                     method: "PATCH",
                     headers: {
                         "content-type": "application/json",

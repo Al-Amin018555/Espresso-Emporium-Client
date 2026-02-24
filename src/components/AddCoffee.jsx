@@ -12,7 +12,7 @@ const AddCoffee = () => {
         console.log(newCoffee)
 
         //adding a coffee to db
-        fetch('http://localhost:3000/coffees', {
+        fetch('https://espresso-emporium-server-nine-delta.vercel.app/coffees', {
             method: "POST",
             headers: {
                 "content-type": "application/json",

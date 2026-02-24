@@ -3,7 +3,7 @@ import CoffeeCard from "./CoffeeCard";
 import { RiCupLine } from "react-icons/ri";
 import { Link } from "react-router";
 
-const coffeePromise = fetch("http://localhost:3000/coffees").then(res => res.json());
+const coffeePromise = fetch("https://espresso-emporium-server-nine-delta.vercel.app/coffees").then(res => res.json());
 console.log(coffeePromise)
 
 const Coffees = () => {
