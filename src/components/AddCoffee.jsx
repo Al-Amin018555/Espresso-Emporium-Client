@@ -12,7 +12,7 @@ const AddCoffee = () => {
         console.log(newCoffee)
 
         //adding a coffee to db
-        fetch('https://espresso-emporium-server-nb7h.vercel.app/coffees', {
+        fetch('https://espresso-emporium-server-opal-three.vercel.app/coffees', {
             method: "POST",
             headers: {
                 "content-type": "application/json",

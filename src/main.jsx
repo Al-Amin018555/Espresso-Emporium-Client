@@ -29,12 +29,12 @@ const router = createBrowserRouter([
       },
       {
         path: "coffees/:id",
-        loader: ({ params }) => fetch(`https://espresso-emporium-server-nb7h.vercel.app/coffees/${params.id}`),
+        loader: ({ params }) => fetch(`https://espresso-emporium-server-opal-three.vercel.app/coffees/${params.id}`),
         Component: CoffeeDetails,
       },
       {
         path: "updateCoffee/:id",
-        loader: ({ params }) => fetch(`https://espresso-emporium-server-nb7h.vercel.app/coffees/${params.id}`),
+        loader: ({ params }) => fetch(`https://espresso-emporium-server-opal-three.vercel.app/coffees/${params.id}`),
         Component: UpdateCoffee,
       },
       {
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'users',
-        loader: () => fetch('https://espresso-emporium-server-nb7h.vercel.app/users'),
+        loader: () => fetch('https://espresso-emporium-server-opal-three.vercel.app/users'),
         Component: Users,
       }
     ],

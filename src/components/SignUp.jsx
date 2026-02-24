@@ -24,7 +24,7 @@ const SignUp = () => {
                 };
 
                 //add user profile info in db
-                fetch('https://espresso-emporium-server-nb7h.vercel.app/users', {
+                fetch('https://espresso-emporium-server-opal-three.vercel.app/users', {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
